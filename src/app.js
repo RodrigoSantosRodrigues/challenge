@@ -1,7 +1,7 @@
-const { jsonError } = require('./util/http')
 const express = require('express')
 const cookieParser = require('cookie-parser')
 const cors = require('cors')
+const { jsonError } = require('./util/http')
 const categoryRouter = require('./routes/category.route')
 const productRouter = require('./routes/product.route')
 
