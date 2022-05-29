@@ -1,0 +1,33 @@
+version: 0.1
+phases:
+  pre_build:
+    commands:
+        - echo Logging in to Amazon ECR...
+        - aws --version
+        - $(aws ecr get-login --region $AWS_DEFAULT_REGION --no-include-email)
+        - REPOSITORY_URI=
+        - COMMIT_HASH=$(echo $CODEBUILD_RESOLVED_SOURCE_VERSION | cut -c 1-7)
+        - IMAGE_TAG=${COMMIT_HASH:=latest}
+        - echo REPOSITORY_URI="$REPOSITORY_URI" > .imageenv
+        - echo IMAGE_TAG="$IMAGE_TAG" >> .imageenv
+        - echo IMAGE_URI="$REPOSITORY_URI:$IMAGE_TAG" >> .imageenv
+        - env | grep IMG_ | sed 's/IMG_//g' >> .imageenv
+  build:
+    commands:
+      - echo Build started on `date`
+      - echo Building the Docker image...
+      - docker build -t $REPOSITORY_URI:latest .
+      - docker tag $REPOSITORY_URI:latest $REPOSITORY_URI:$IMAGE_TAG
+  post_build:
+    commands:
+      - echo Build completed on `date`
+      - echo Pushing the Docker images...
+      - docker push $REPOSITORY_URI:latest
+      - docker push $REPOSITORY_URI:$IMAGE_TAG
+      - echo Docker images pushed to $REPOSITORY_URI:$IMAGE_TAG
+artifacts:
+  files:
+    - .imageenv
+    - .env
+    - appspec.yml
+    - after_install.sh
