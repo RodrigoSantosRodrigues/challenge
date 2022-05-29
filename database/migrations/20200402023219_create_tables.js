@@ -16,11 +16,11 @@ exports.up = function(knex) {
             table.datetime('created', 6).notNullable()
             table.datetime('updated', 6).notNullable()
             table.foreign('category_id').references('id').inTable('category')
-        })
+        });
 };
 
 exports.down = function(knex) {
     return knex.schema
         .dropTable('category')
-        .dropTable('product')
+        .dropTable('product');
 }
