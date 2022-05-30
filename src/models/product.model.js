@@ -20,9 +20,14 @@ async function remove(id) {
     return await db('product').del().where('id', id);
 }
 
+async function getProductByCategoryId(category_id) {
+    return await db.select().from('product').where('category_id', category_id)
+}
+
 module.exports = {
     create,
     get,
     update,
-    remove
+    remove,
+    getProductByCategoryId
 }

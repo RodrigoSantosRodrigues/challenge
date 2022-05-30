@@ -9,12 +9,8 @@ async function createProduct(res, data) {
     if (!data) return jsonBadRequest(res, {error: messages['missingBody']});
 
     const created = await productModel.create(data);
-    if (!created) {
-        return jsonBadRequest(
-            res,
-            {data: 'Error in create'}
-        )
-    }
+    if (!created) return jsonBadRequest(res, {data: 'Error in create'});
+
     return jsonSuccess(
         res,
         {data: 'OK'}
@@ -24,7 +20,7 @@ async function createProduct(res, data) {
 async function findProduct(res, id) {
     if (!id) return jsonBadRequest(res, {error: messages['missingId']});
 
-    const product = await productModel.get(id)
+    const product = await productModel.get(id);
     return jsonSuccess(
         res,
         {data: product}
@@ -32,7 +28,7 @@ async function findProduct(res, id) {
 }
 
 async function listProduct(res) {
-    const categories = await productModel.get()
+    const categories = await productModel.get();
     return jsonSuccess(
         res,
         {data: categories}
@@ -44,13 +40,9 @@ async function updateProduct(res, id, body) {
     if (!body) return jsonBadRequest(res, {error: messages['missingBody']});
 
     body.updated = new Date();
-    const updated = await productModel.update(id, body)
-    if (!updated) {
-        return jsonBadRequest(
-            res,
-            {data: 'Error in update'}
-        )
-    }
+    const updated = await productModel.update(id, body);
+    if (!updated)  return jsonBadRequest(res, {data: 'Error in update'});
+
     return jsonSuccess(
         res,
         {data: 'OK'}
@@ -60,7 +52,7 @@ async function updateProduct(res, id, body) {
 async function deleteProduct(res, id) {
     if (!id) return jsonBadRequest(res, {error: messages['missingId']});
 
-    await productModel.remove(id)
+    await productModel.remove(id);
     return jsonSuccess(
         res,
         {data: 'OK'}
