@@ -9,12 +9,33 @@ const { messages } = require('../mappers/messages');
 async function createProduct(res, data) {
     if (!data) return jsonBadRequest(res, {error: messages['missingBody']});
 
+    data.created = new Date();
+    data.updated = new Date();
     const created = await productModel.create(data);
     if (!created) return jsonBadRequest(res, {data: 'Error in create'});
 
     return jsonSuccess(
         res,
         {data: 'OK'}
+    );
+}
+
+async function createProductForCategory(res, category_name, data) {
+    if (!category_name) return jsonBadRequest(res, {error: messages['missingCategoryName']});
+
+    const category = await categoryModel.getCategoryByCategoryName(category_name)
+    const dataProduct  = data.map(item => (item = {
+        ...item,
+        category_id: category.id,
+        created : new Date(),
+        updated: new Date()
+    }
+    ))
+
+    const product = await productModel.create(dataProduct);
+    return jsonSuccess(
+        res,
+        {data: product}
     );
 }
 
@@ -77,5 +98,6 @@ module.exports = {
     listProduct,
     updateProduct,
     deleteProduct,
-    findProductByCategoryName
+    findProductByCategoryName,
+    createProductForCategory
 }

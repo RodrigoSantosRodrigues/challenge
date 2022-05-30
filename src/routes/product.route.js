@@ -14,6 +14,16 @@ router.route('/')
     })
 
 router.route('/')
+    .post(auth(), async (req, res, next) => {
+        try {
+            const { data } = req.body;
+            return await productController.createProduct(res, data);
+        } catch (e) {
+            next(e);
+        }
+    })
+
+router.route('/')
     .get(auth(), async (req, res, next) => {
         try {
             return await productController.listProduct(res);
@@ -35,6 +45,15 @@ router.route('/:category_name/export')
     .get(auth(), async (req, res, next) => {
         try {
             return await productController.findProductByCategoryName(res, req.params.category_name);
+        } catch (e) {
+            next(e);
+        }
+    })
+
+router.route('/:category_name/import')
+    .post(auth(), async (req, res, next) => {
+        try {
+            return await productController.createProductForCategory(res, req.params.category_name, req.body.data);
         } catch (e) {
             next(e);
         }

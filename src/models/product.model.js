@@ -1,9 +1,6 @@
 const db = require('../../database');
 
-
 async function create (data) {
-    data.created = new Date();
-    data.updated = new Date();
     return await db('product').insert(data);
 }
 
