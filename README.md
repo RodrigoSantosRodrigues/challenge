@@ -1,8 +1,9 @@
 # Challenge
-Node Api Basic
+Node Api Basic with postgresSql
 
 # Setup
 - Install node > 14.0.0
+- Install postgres
 - Install npm and yarn
 - Instalar as dependências -> `yarn or npm install`
 - Rename `.env.example` for `.env`
