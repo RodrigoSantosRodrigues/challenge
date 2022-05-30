@@ -1,22 +1,76 @@
-async function createCategory(data) {
-    return data
+const {
+    jsonSuccess,
+    jsonBadRequest
+} = require('../util/http');
+const productModel = require('../models/product.model');
+const { messages } = require('../mappers/messages');
+
+async function createProduct(res, data) {
+    if (!data) return jsonBadRequest(res, {error: messages['missingBody']});
+
+    const created = await productModel.create(data);
+    if (!created) {
+        return jsonBadRequest(
+            res,
+            {data: 'Error in create'}
+        )
+    }
+    return jsonSuccess(
+        res,
+        {data: 'OK'}
+    );
 }
 
-async function listCategory(data) {
-    return data
+async function findProduct(res, id) {
+    if (!id) return jsonBadRequest(res, {error: messages['missingId']});
+
+    const product = await productModel.get(id)
+    return jsonSuccess(
+        res,
+        {data: product}
+    );
 }
 
-async function updateCategory(data) {
-    return data
+async function listProduct(res) {
+    const categories = await productModel.get()
+    return jsonSuccess(
+        res,
+        {data: categories}
+    );
 }
 
-async function deleteCategory(data) {
-    return data
+async function updateProduct(res, id, body) {
+    if (!id) return jsonBadRequest(res, {error: messages['missingId']});
+    if (!body) return jsonBadRequest(res, {error: messages['missingBody']});
+
+    body.updated = new Date();
+    const updated = await productModel.update(id, body)
+    if (!updated) {
+        return jsonBadRequest(
+            res,
+            {data: 'Error in update'}
+        )
+    }
+    return jsonSuccess(
+        res,
+        {data: 'OK'}
+    );
+}
+
+async function deleteProduct(res, id) {
+    if (!id) return jsonBadRequest(res, {error: messages['missingId']});
+
+    await productModel.remove(id)
+    return jsonSuccess(
+        res,
+        {data: 'OK'}
+    );
 }
 
 module.exports = {
-    createCategory,
-    listCategory,
-    updateCategory,
-    deleteCategory
+    createProduct,
+    findProduct,
+    listProduct,
+    updateProduct,
+    deleteProduct
 }

@@ -6,7 +6,7 @@ const categoryModel = require('../models/category.model');
 const { messages } = require('../mappers/messages');
 
 async function createCategory(res, data) {
-    if (!data) return jsonBadRequest(res, {error: messages['missingDataCategory']});
+    if (!data) return jsonBadRequest(res, {error: messages['missingBody']});
 
     const created = await categoryModel.create(data);
     if (!created) {
@@ -41,7 +41,7 @@ async function listCategory(res) {
 
 async function updateCategory(res, id, body) {
     if (!id) return jsonBadRequest(res, {error: messages['missingId']});
-    if (!body) return jsonBadRequest(res, {error: messages['missingDataCategory']});
+    if (!body) return jsonBadRequest(res, {error: messages['missingBody']});
 
     body.updated = new Date();
     const updated = await categoryModel.update(id, body)

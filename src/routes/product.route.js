@@ -1,50 +1,50 @@
-const express = require('express')
-const router = express.Router()
-const {
-    jsonSuccess
-} = require('../util/http')
+const express = require('express');
+const router = express.Router();
+const productController = require('../controllers/product.controller');
+const auth = require('../../middleware/auth');
 
 router.route('/')
-    .post(async (req, res, next) => {
+    .post(auth(), async (req, res, next) => {
         try {
-            const { data } = req.body
+            const { data } = req.body;
+            return await productController.createProduct(res, data);
+        } catch (e) {
+            next(e);
+        }
+    })
 
-            return jsonSuccess(res, data)
+router.route('/')
+    .get(auth(), async (req, res, next) => {
+        try {
+            return await productController.listProduct(res);
+        } catch (e) {
+            next(e);
+        }
+    })
+
+router.route('/:id')
+    .get(auth(), async (req, res, next) => {
+        try {
+            return await productController.findProduct(res, req.params.id);
+        } catch (e) {
+            next(e);
+        }
+    })
+
+router.route('/:id')
+    .put(auth(), async (req, res, next) => {
+        try {
+            const { data } = req.body;
+            return await productController.updateProduct(res, req.params.id, data);
         } catch (e) {
             next(e)
         }
     })
 
 router.route('/:id')
-    .get(async (req, res, next) => {
+    .delete(auth(), async (req, res, next) => {
         try {
-            const  id = req.params.id
-
-            return jsonSuccess(res, {
-                data: id
-            })
-        } catch (e) {
-            next(e)
-        }
-    })
-
-router.route('/:id')
-    .put(async (req, res, next) => {
-        try {
-            const id = req.params.id
-
-            return jsonSuccess(res, id)
-        } catch (e) {
-            next(e)
-        }
-    })
-
-router.route('/:id')
-    .delete(async (req, res, next) => {
-        try {
-            const id = req.params.id
-
-            return jsonSuccess(res, id)
+            return await productController.deleteProduct(res, req.params.id);
         } catch (e) {
             next(e)
         }

@@ -1,22 +1,28 @@
+const db = require('../../database');
+
+
 async function create (data) {
-    return data
+    data.created = new Date();
+    data.updated = new Date();
+    return await db('product').insert(data);
 }
 
-async function list (data) {
-    return data
+async function get(id) {
+    if (!id) return await db.select().from('product');
+    return await db.select().from('product').where('id', id);
 }
 
-async function update (data) {
-    return data
+async function update(id, data) {
+    return await db('product').update(data).where('id', id);
 }
 
-async function remove (data) {
-    return data
+async function remove(id) {
+    return await db('product').del().where('id', id);
 }
 
 module.exports = {
     create,
-    list,
+    get,
     update,
     remove
 }

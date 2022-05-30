@@ -1,6 +1,6 @@
 const messages = {
     missingId: 'Missing field ID',
-    missingDataCategory: 'Missing data category'
+    missingBody: 'Missing body'
 };
 
 module.exports = {
