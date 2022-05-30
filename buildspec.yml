@@ -30,4 +30,3 @@ artifacts:
     - .imageenv
     - .env
     - appspec.yml
-    - after_install.sh
