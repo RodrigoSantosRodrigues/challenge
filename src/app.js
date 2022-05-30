@@ -20,6 +20,8 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 app.use(cookieParser())
 
+app.use('/api-docs', express.static('docs'))
+
 app.use('/category', categoryRouter)
 app.use('/product', productRouter)
 app.use('/', homeRouter)
