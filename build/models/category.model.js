@@ -1,4 +1,4 @@
-const db = require('../database');
+"use strict";const db = require('../database');
 
 async function create (data) {
     data.created = new Date();

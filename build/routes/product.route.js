@@ -1,4 +1,4 @@
-const express = require('express');
+"use strict";const express = require('express');
 const router = express.Router();
 const {jsonSuccess, jsonBadRequest } = require('../util/http');
 const productController = require('../controllers/product.controller');

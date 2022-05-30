@@ -1,4 +1,4 @@
-const express = require('express')
+"use strict";const express = require('express')
 const cookieParser = require('cookie-parser')
 const cors = require('cors')
 const { jsonError } = require('./util/http')

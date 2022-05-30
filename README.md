@@ -30,6 +30,7 @@ npx knex seed:run or knex seed:run
 
 # Test
 - Runing unitests `yarn test`
+![Alt text](specs/test.PNG)
 
 # Start
 - Runing api `yarn start:dev`
@@ -37,7 +38,10 @@ npx knex seed:run or knex seed:run
 
 # Documentation
 - Listening documentaion in http://localhost:3000/api-docs
+![Alt text](specs/swagger.PNG)
+
 - The collections folder contains the collections file called by Postman
+![Alt text](specs/postman.PNG)
 
 
 # Build

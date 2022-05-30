@@ -1,4 +1,4 @@
-const { jsonUnauthorized, jsonForbidden } = require('../src/util/http')
+"use strict";const { jsonUnauthorized, jsonForbidden } = require('../util/http')
 
 module.exports = () => {
     return async (req, res, next) => {

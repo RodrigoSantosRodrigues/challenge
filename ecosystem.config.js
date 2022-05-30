@@ -2,7 +2,7 @@ module.exports = {
     apps: [
         {
             name: 'challenge',
-            script: './build/bin/index.js',
+            script: './build/app.js',
             instances: 1,
             exec_mode: 'cluster',
             interpreter : '/home/gdky3c34a/.nvm/versions/node/v10.11.0/bin/node',
