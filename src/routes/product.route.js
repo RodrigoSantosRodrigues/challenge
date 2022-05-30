@@ -31,6 +31,15 @@ router.route('/:id')
         }
     })
 
+router.route('/:category_name/export')
+    .get(auth(), async (req, res, next) => {
+        try {
+            return await productController.findProductByCategoryName(res, req.params.category_name);
+        } catch (e) {
+            next(e);
+        }
+    })
+
 router.route('/:id')
     .put(auth(), async (req, res, next) => {
         try {

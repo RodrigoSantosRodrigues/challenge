@@ -19,9 +19,14 @@ async function remove(id) {
     return await db('category').del().where('id', id);
 }
 
+async function getCategoryByCategoryName(category_name) {
+    return await db.select().from('category').where('name', category_name).first()
+}
+
 module.exports = {
     create,
     get,
     update,
-    remove
+    remove,
+    getCategoryByCategoryName
 }

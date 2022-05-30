@@ -3,6 +3,7 @@ const {
     jsonBadRequest
 } = require('../util/http');
 const productModel = require('../models/product.model');
+const categoryModel = require('../models/category.model');
 const { messages } = require('../mappers/messages');
 
 async function createProduct(res, data) {
@@ -21,6 +22,17 @@ async function findProduct(res, id) {
     if (!id) return jsonBadRequest(res, {error: messages['missingId']});
 
     const product = await productModel.get(id);
+    return jsonSuccess(
+        res,
+        {data: product}
+    );
+}
+
+async function findProductByCategoryName(res, category_name) {
+    if (!category_name) return jsonBadRequest(res, {error: messages['missingCategoryName']});
+
+    const category = await categoryModel.getCategoryByCategoryName(category_name)
+    const product = await productModel.getProductByCategoryId(category.id);
     return jsonSuccess(
         res,
         {data: product}
@@ -64,5 +76,6 @@ module.exports = {
     findProduct,
     listProduct,
     updateProduct,
-    deleteProduct
+    deleteProduct,
+    findProductByCategoryName
 }
