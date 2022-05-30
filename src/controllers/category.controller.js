@@ -1,21 +1,75 @@
-async function createCategory(data) {
-    return data
+const {
+    jsonSuccess,
+    jsonBadRequest
+} = require('../util/http');
+const categoryModel = require('../models/category.model');
+const { messages } = require('../mappers/messages');
+
+async function createCategory(res, data) {
+    if (!data) return jsonBadRequest(res, {error: messages['missingDataCategory']});
+
+    const created = await categoryModel.create(data);
+    if (!created) {
+        return jsonBadRequest(
+            res,
+            {data: 'Error in create'}
+        )
+    }
+    return jsonSuccess(
+        res,
+        {data: 'OK'}
+    );
 }
 
-async function listCategory(data) {
-    return data
+async function findCategory(res, id) {
+    if (!id) return jsonBadRequest(res, {error: messages['missingId']});
+
+    const category = await categoryModel.get(id)
+    return jsonSuccess(
+        res,
+        {data: category}
+    );
 }
 
-async function updateCategory(data) {
-    return data
+async function listCategory(res) {
+    const categories = await categoryModel.get()
+    return jsonSuccess(
+        res,
+        {data: categories}
+    );
 }
 
-async function deleteCategory(data) {
-    return data
+async function updateCategory(res, id, body) {
+    if (!id) return jsonBadRequest(res, {error: messages['missingId']});
+    if (!body) return jsonBadRequest(res, {error: messages['missingDataCategory']});
+
+    body.updated = new Date();
+    const updated = await categoryModel.update(id, body)
+    if (!updated) {
+        return jsonBadRequest(
+            res,
+            {data: 'Error in update'}
+        )
+    }
+    return jsonSuccess(
+        res,
+        {data: 'OK'}
+    );
+}
+
+async function deleteCategory(res, id) {
+    if (!id) return jsonBadRequest(res, {error: messages['missingId']});
+
+    await categoryModel.remove(id)
+    return jsonSuccess(
+        res,
+        {data: 'OK'}
+    );
 }
 
 module.exports = {
     createCategory,
+    findCategory,
     listCategory,
     updateCategory,
     deleteCategory

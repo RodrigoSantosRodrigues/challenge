@@ -2,7 +2,7 @@ exports.up = function(knex) {
     return knex.schema
         .createTableIfNotExists('category', table => {
             table.increments('id').primary().notNullable()
-            table.string('name', 150).unique()
+            table.string('name', 150).unique().notNullable()
             table.string('description', 150)
             table.datetime('created', 6).notNullable()
             table.datetime('updated', 6).notNullable()
