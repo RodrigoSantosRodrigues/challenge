@@ -1,66 +1,47 @@
-const {
-    jsonSuccess,
-    jsonBadRequest
-} = require('../util/http');
 const categoryModel = require('../models/category.model');
 const productModel = require('../models/product.model');
 const { messages } = require('../mappers/messages');
 
-async function createCategory(res, data) {
-    if (!data) return jsonBadRequest(res, {error: messages['missingBody']});
+async function createCategory(data) {
+    if (!data) return {error: messages['missingBody']};
 
     const created = await categoryModel.create(data);
-    if (!created) return jsonBadRequest(res, {data: 'Error in create'});
+    if (!created) return {error: messages['errorCreate']};
 
-    return jsonSuccess(
-        res,
-        {data: 'OK'}
-    );
+    return {data: 'OK'}
 }
 
-async function findCategory(res, id) {
-    if (!id) return jsonBadRequest(res, {error: messages['missingId']});
+async function findCategory(id) {
+    if (!id) return {error: messages['missingId']};
 
     const category = await categoryModel.get(id);
-    return jsonSuccess(
-        res,
-        {data: category}
-    );
+    return {data: category}
 }
 
-async function listCategory(res) {
+async function listCategory() {
     const categories = await categoryModel.get();
-    return jsonSuccess(
-        res,
-        {data: categories}
-    );
+    return {data: categories}
 }
 
-async function updateCategory(res, id, body) {
-    if (!id) return jsonBadRequest(res, {error: messages['missingId']});
-    if (!body) return jsonBadRequest(res, {error: messages['missingBody']});
+async function updateCategory(id, body) {
+    if (!id) return {error: messages['missingId']};
+    if (!body) return {error: messages['missingBody']};
 
     body.updated = new Date();
     const updated = await categoryModel.update(id, body);
-    if (!updated) return jsonBadRequest(res, {data: 'Error in update'});
+    if (!updated) return {data: 'Error in update'};
 
-    return jsonSuccess(
-        res,
-        {data: 'OK'}
-    );
+    return {data: 'OK'}
 }
 
 async function deleteCategory(res, id) {
-    if (!id) return jsonBadRequest(res, {error: messages['missingId']});
+    if (!id) return {error: messages['missingId']};
 
     const product = await productModel.getProductByCategoryId(id)
-    if (product.length) return jsonBadRequest(res, {data: 'There is a product for this category'});
+    if (product.length) return {data: 'There is a product for this category'};
 
     await categoryModel.remove(id)
-    return jsonSuccess(
-        res,
-        {data: 'OK'}
-    );
+    return {data: 'OK'}
 }
 
 module.exports = {
