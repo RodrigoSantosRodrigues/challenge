@@ -38,3 +38,9 @@ npx knex seed:run or knex seed:run
 # Documentation
 - Listening documentaion in http://localhost:3000/api-docs
 - The collections folder contains the collections file called by Postman
+
+
+# Build
+- Runing `yarn build`
+- Install Pm2 latest `yarn global add pm2`
+- start application `pm2 start ecosystem.config.js` for executing build
