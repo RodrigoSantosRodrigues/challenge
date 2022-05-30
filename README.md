@@ -37,3 +37,4 @@ npx knex seed:run or knex seed:run
 
 # Documentation
 - Listening documentaion in http://localhost:3000/api-docs
+- The collections folder contains the collections file called by Postman

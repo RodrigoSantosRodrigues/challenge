@@ -1,0 +1,1205 @@
+{
+	"info": {
+		"_postman_id": "1a8c370f-2a1a-457c-a078-e5baf8bde012",
+		"name": "Challenged",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Product",
+			"item": [
+				{
+					"name": "Buscar por ID",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-api-token",
+								"value": "xxx",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/product/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"product",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Buscar por ID",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "x-api-token",
+										"value": "xxx",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:3000/product/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"product",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "169"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"a9-/SaotHX+iSqQIp5pMLJfJRavlus\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 30 May 2022 03:18:15 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": [\n        {\n            \"id\": 1,\n            \"name\": \"Watch\",\n            \"description\": \"Eletronics watch\",\n            \"value\": 600,\n            \"category_id\": 1,\n            \"created\": \"2022-05-29T22:38:07.193Z\",\n            \"updated\": \"2022-05-29T22:38:07.193Z\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Criar",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-api-token",
+								"value": "xxx",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"data\": {\r\n        \"name\": \"test create 2\",\r\n        \"description\": \"xxxxxcccc\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/product/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"product",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Criar",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "x-api-token",
+										"value": "xxx",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"data\": {\r\n        \"name\": \"Watch 2\",\r\n        \"description\": \"Eletronics watch 2\",\r\n        \"value\": 600,\r\n        \"category_id\": 2\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/product/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"product",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "13"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"d-5PmqOUOLyDrp2YvSxI+Jo0DoZSM\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 30 May 2022 03:20:23 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": \"OK\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Importar",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-api-token",
+								"value": "xxx",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"data\": [\r\n        {\r\n            \"name\": \"Lote 1\",\r\n            \"description\": \"Lote 1\"\r\n        },\r\n        {\r\n            \"name\": \"Lote 2\",\r\n            \"description\": \"Lote 2\"\r\n        },\r\n        {\r\n            \"name\": \"Lote 3\",\r\n            \"description\": \"Lote 3\"\r\n        },\r\n        {\r\n            \"name\": \"Lote 4\",\r\n            \"description\": \"Lote 4\"\r\n        },\r\n        {\r\n            \"name\": \"Lote 5\",\r\n            \"description\": \"Lote 5\"\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/product/Eletronics/import",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"product",
+								"Eletronics",
+								"import"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Importar",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "x-api-token",
+										"value": "xxx",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"data\": [\r\n        {\r\n            \"name\": \"Lote 1\",\r\n            \"description\": \"Lote 1\"\r\n        },\r\n        {\r\n            \"name\": \"Lote 2\",\r\n            \"description\": \"Lote 2\"\r\n        },\r\n        {\r\n            \"name\": \"Lote 3\",\r\n            \"description\": \"Lote 3\"\r\n        },\r\n        {\r\n            \"name\": \"Lote 4\",\r\n            \"description\": \"Lote 4\"\r\n        },\r\n        {\r\n            \"name\": \"Lote 5\",\r\n            \"description\": \"Lote 5\"\r\n        }\r\n    ]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/product/Eletronics/import",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"product",
+										"Eletronics",
+										"import"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1022"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"3fe-5P5PBJHUT0iesxfpIKn8YwGA9To\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 30 May 2022 04:38:32 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"command\": \"INSERT\",\n        \"rowCount\": 5,\n        \"oid\": 0,\n        \"rows\": [],\n        \"fields\": [],\n        \"_types\": {\n            \"_types\": {\n                \"arrayParser\": {},\n                \"builtins\": {\n                    \"BOOL\": 16,\n                    \"BYTEA\": 17,\n                    \"CHAR\": 18,\n                    \"INT8\": 20,\n                    \"INT2\": 21,\n                    \"INT4\": 23,\n                    \"REGPROC\": 24,\n                    \"TEXT\": 25,\n                    \"OID\": 26,\n                    \"TID\": 27,\n                    \"XID\": 28,\n                    \"CID\": 29,\n                    \"JSON\": 114,\n                    \"XML\": 142,\n                    \"PG_NODE_TREE\": 194,\n                    \"SMGR\": 210,\n                    \"PATH\": 602,\n                    \"POLYGON\": 604,\n                    \"CIDR\": 650,\n                    \"FLOAT4\": 700,\n                    \"FLOAT8\": 701,\n                    \"ABSTIME\": 702,\n                    \"RELTIME\": 703,\n                    \"TINTERVAL\": 704,\n                    \"CIRCLE\": 718,\n                    \"MACADDR8\": 774,\n                    \"MONEY\": 790,\n                    \"MACADDR\": 829,\n                    \"INET\": 869,\n                    \"ACLITEM\": 1033,\n                    \"BPCHAR\": 1042,\n                    \"VARCHAR\": 1043,\n                    \"DATE\": 1082,\n                    \"TIME\": 1083,\n                    \"TIMESTAMP\": 1114,\n                    \"TIMESTAMPTZ\": 1184,\n                    \"INTERVAL\": 1186,\n                    \"TIMETZ\": 1266,\n                    \"BIT\": 1560,\n                    \"VARBIT\": 1562,\n                    \"NUMERIC\": 1700,\n                    \"REFCURSOR\": 1790,\n                    \"REGPROCEDURE\": 2202,\n                    \"REGOPER\": 2203,\n                    \"REGOPERATOR\": 2204,\n                    \"REGCLASS\": 2205,\n                    \"REGTYPE\": 2206,\n                    \"UUID\": 2950,\n                    \"TXID_SNAPSHOT\": 2970,\n                    \"PG_LSN\": 3220,\n                    \"PG_NDISTINCT\": 3361,\n                    \"PG_DEPENDENCIES\": 3402,\n                    \"TSVECTOR\": 3614,\n                    \"TSQUERY\": 3615,\n                    \"GTSVECTOR\": 3642,\n                    \"REGCONFIG\": 3734,\n                    \"REGDICTIONARY\": 3769,\n                    \"JSONB\": 3802,\n                    \"REGNAMESPACE\": 4089,\n                    \"REGROLE\": 4096\n                }\n            },\n            \"text\": {},\n            \"binary\": {}\n        },\n        \"RowCtor\": null,\n        \"rowAsArray\": false\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Bucar todos",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-api-token",
+								"value": "xxx",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/product/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"product",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Bucar todos",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "x-api-token",
+										"value": "xxx",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:3000/product/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"product",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "808"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"328-cASjtRDza0wzpRc4KV14Mc9f4as\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 30 May 2022 03:17:54 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": [\n        {\n            \"id\": 1,\n            \"name\": \"Watch\",\n            \"description\": \"Eletronics watch\",\n            \"value\": 600,\n            \"category_id\": 1,\n            \"created\": \"2022-05-29T22:38:07.193Z\",\n            \"updated\": \"2022-05-29T22:38:07.193Z\"\n        },\n        {\n            \"id\": 2,\n            \"name\": \"Galaxy phone\",\n            \"description\": \"Cell Phones galaxy\",\n            \"value\": 2000,\n            \"category_id\": 2,\n            \"created\": \"2022-05-29T22:38:07.193Z\",\n            \"updated\": \"2022-05-29T22:38:07.193Z\"\n        },\n        {\n            \"id\": 3,\n            \"name\": \"Phones sansung\",\n            \"description\": \"Phones sansung\",\n            \"value\": 1500,\n            \"category_id\": 2,\n            \"created\": \"2022-05-29T22:38:07.193Z\",\n            \"updated\": \"2022-05-29T22:38:07.193Z\"\n        },\n        {\n            \"id\": 4,\n            \"name\": \"TV show\",\n            \"description\": \"TV\",\n            \"value\": 3000,\n            \"category_id\": 4,\n            \"created\": \"2022-05-29T22:38:07.193Z\",\n            \"updated\": \"2022-05-29T22:38:07.193Z\"\n        },\n        {\n            \"id\": 5,\n            \"name\": \"Notebook\",\n            \"description\": \"Notebook\",\n            \"value\": 5000,\n            \"category_id\": 4,\n            \"created\": \"2022-05-29T22:38:07.193Z\",\n            \"updated\": \"2022-05-29T22:38:07.193Z\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "x-api-token",
+								"value": "xxx",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"data\": {\r\n        \"name\": \"updated\",\r\n        \"description\": \"xxxxxcccc\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/product/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"product",
+								"2"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Update",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "x-api-token",
+										"value": "xxx",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"data\": {\r\n        \"name\": \"Watch 3\",\r\n        \"description\": \"Eletronics watch 3\",\r\n        \"value\": 610,\r\n        \"category_id\": 2\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/product/3",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"product",
+										"3"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "13"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"d-5PmqOUOLyDrp2YvSxI+Jo0DoZSM\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 30 May 2022 03:22:49 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": \"OK\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Deletar",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "x-api-token",
+								"value": "xxx",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/product/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"product",
+								"2"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Deletar",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "x-api-token",
+										"value": "xxx",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:3000/product/6",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"product",
+										"6"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "13"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"d-5PmqOUOLyDrp2YvSxI+Jo0DoZSM\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 30 May 2022 03:23:23 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": \"OK\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Exportar por nome de categoria",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-api-token",
+								"value": "xxx",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/product/Eletronics/export",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"product",
+								"Eletronics",
+								"export"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Exportar por nome de categoria",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "x-api-token",
+										"value": "xxx",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:3000/product/Eletronics/export",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"product",
+										"Eletronics",
+										"export"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "169"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"a9-/SaotHX+iSqQIp5pMLJfJRavlus\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 30 May 2022 04:00:33 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": [\n        {\n            \"id\": 1,\n            \"name\": \"Watch\",\n            \"description\": \"Eletronics watch\",\n            \"value\": 600,\n            \"category_id\": 1,\n            \"created\": \"2022-05-29T22:38:07.193Z\",\n            \"updated\": \"2022-05-29T22:38:07.193Z\"\n        }\n    ]\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Category",
+			"item": [
+				{
+					"name": "Buscar por ID",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-api-token",
+								"value": "xxx",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/category/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"category",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Buscar por ID",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "x-api-token",
+										"value": "xxx",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:3000/category/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"category",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "140"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"8c-1+4zwVuPtCydvVM6ISFYTMkJqss\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 30 May 2022 00:46:12 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": [\n        {\n            \"id\": 1,\n            \"name\": \"Eletronics\",\n            \"description\": \"Eletronics\",\n            \"created\": \"2022-05-29T22:38:07.193Z\",\n            \"updated\": \"2022-05-29T22:38:07.193Z\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Criar",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-api-token",
+								"value": "xxx",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"data\": {\r\n        \"name\": \"test create 2\",\r\n        \"description\": \"xxxxxcccc\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/category/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"category",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Criar",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "x-api-token",
+										"value": "xxx",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"data\": {\r\n        \"name\": \"test create 2\",\r\n        \"description\": \"xxxxxcccc\"\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/category/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"category",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "13"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"d-5PmqOUOLyDrp2YvSxI+Jo0DoZSM\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 30 May 2022 00:56:31 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": \"OK\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Bucar todos",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-api-token",
+								"value": "xxx",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/category/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"category",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Bucar todos",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "x-api-token",
+										"value": "xxx",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:3000/category/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"category",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "754"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2f2-UILRU/x6G5yFKsL8wF8KVT9swlA\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 30 May 2022 00:44:15 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": [\n        {\n            \"id\": 1,\n            \"name\": \"Eletronics\",\n            \"description\": \"Eletronics\",\n            \"created\": \"2022-05-29T22:38:07.193Z\",\n            \"updated\": \"2022-05-29T22:38:07.193Z\"\n        },\n        {\n            \"id\": 2,\n            \"name\": \"Cell Phones\",\n            \"description\": \"Cell Phones\",\n            \"created\": \"2022-05-29T22:38:07.193Z\",\n            \"updated\": \"2022-05-29T22:38:07.193Z\"\n        },\n        {\n            \"id\": 3,\n            \"name\": \"Phones\",\n            \"description\": \"Phones\",\n            \"created\": \"2022-05-29T22:38:07.193Z\",\n            \"updated\": \"2022-05-29T22:38:07.193Z\"\n        },\n        {\n            \"id\": 4,\n            \"name\": \"TV\",\n            \"description\": \"TV\",\n            \"created\": \"2022-05-29T22:38:07.193Z\",\n            \"updated\": \"2022-05-29T22:38:07.193Z\"\n        },\n        {\n            \"id\": 5,\n            \"name\": \"Notebooks\",\n            \"description\": \"Notebooks\",\n            \"created\": \"2022-05-29T22:38:07.193Z\",\n            \"updated\": \"2022-05-29T22:38:07.193Z\"\n        },\n        {\n            \"id\": 6,\n            \"name\": \"Test\",\n            \"description\": \"Test\",\n            \"created\": \"2022-05-29T22:38:07.193Z\",\n            \"updated\": \"2022-05-29T22:38:07.193Z\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "x-api-token",
+								"value": "xxx",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"data\": {\r\n        \"name\": \"updated\",\r\n        \"description\": \"xxxxxcccc\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/category/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"category",
+								"2"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Update",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "x-api-token",
+										"value": "xxx",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"data\": {\r\n        \"name\": \"updated\",\r\n        \"description\": \"xxxxxcccc\"\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/category/2",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"category",
+										"2"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "13"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"d-5PmqOUOLyDrp2YvSxI+Jo0DoZSM\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 30 May 2022 01:14:16 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": \"OK\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Deletar",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "x-api-token",
+								"value": "xxx",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/category/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"category",
+								"2"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Deletar",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "x-api-token",
+										"value": "xxx",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:3000/category/7",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"category",
+										"7"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "13"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"d-5PmqOUOLyDrp2YvSxI+Jo0DoZSM\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 30 May 2022 01:18:17 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": \"OK\"\n}"
+						}
+					]
+				}
+			]
+		}
+	]
+}
